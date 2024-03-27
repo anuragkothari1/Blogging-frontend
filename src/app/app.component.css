@@ -1,0 +1,17 @@
+.navul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+    margin-bottom: 0;
+}
+
+.navul >li{
+    margin: 0 10px ;
+}
+
+.main{
+    max-width: 100%;
+    /* overflow-x: hidden;
+    position: sticky; */
+}

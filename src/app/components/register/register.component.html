@@ -1,0 +1,41 @@
+<div class="login-main content">
+    <div class="row margin-login ">
+             
+             <div class="login col-md-6 col-lg-6 col-sm-12">
+                 <h3 class="my-4">Register</h3>
+                 <form class="form" action="" ngform>
+                    <div class="input-group my-3">
+                        <span class="input-group-text" id="basic-addon1">Username</span>
+                        <input class=" form-control" type="name" name="name" [(ngModel)]="name" aria-describedby="basic-addon1" placeholder="Enter Your Name">
+                    </div>
+                    <div class="input-group my-3">
+                        <span class="input-group-text" id="basic-addon1">Email</span>
+                        <input type="email" class="form-control" placeholder="Email" name="email" [(ngModel)]="email" aria-label="Username" aria-describedby="basic-addon1">
+                  
+                    </div>
+                   
+                    <div class="input-group my-3">
+                        <span class="input-group-text" id="basic-addon1">Password</span>
+                    <input class=" form-control" type="password" name="password" [(ngModel)]="password" aria-describedby="basic-addon1" placeholder="Password">
+                    </div>
+                
+                    <button type="submit" (click)="registerClicked()"class="btn btn-dark input1">Register</button>
+                    <h6 class="my-20 input1">Already have an account ?</h6>
+                    <button (click)="loginClick()" class="btn btn-light input1">Login</button>
+                 </form>
+
+
+             </div>
+             
+             <div class="login-image col-md-6 col-lg-6 col-sm-12">
+                <img class ="img" src="../../../assets/login.webp" alt="">
+             </div>
+
+
+
+    </div>
+
+
+
+</div>
+

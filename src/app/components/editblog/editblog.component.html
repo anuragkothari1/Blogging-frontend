@@ -1,0 +1,20 @@
+<div class="my-5 container">
+    <div class="write-blog">
+        <h3 class="py-3 text-center" >Edit Your Blog </h3>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Heading</label>
+            <input [(ngModel)]="blog.heading"  name="heading"   class="form-control" id="exampleFormControlInput1" placeholder="Enter Heading of Your blog">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+            <textarea [(ngModel)]="blog.content" name="content"  class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+        
+          
+          <button (click)="edit()" class="btn btn-primary">Submit</button>
+       
+
+         
+         
+     </div>
+</div>

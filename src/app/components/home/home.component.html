@@ -1,0 +1,107 @@
+<div class="home ">
+    <div class="row home-content">
+        <div class="d-flex flex-column  left col-md-6 col-md-6 col-sm-12">
+            <h1>
+                Welcome to Blorag !!
+            </h1>
+            <h4>Explore the world with us</h4>
+        </div>
+        <div class="left col-md-6 col-md-6 col-sm-12">
+            <img class ="img" src="../../../assets/login.webp" alt="">
+        </div>
+    </div>
+    <h3 class=" blog-heading text-center" >Read Latest Blogs </h3>
+    <div class="my-2 blog-section">
+        
+        <div class="container">
+            <h3 *ngIf="!isDataFetched1" class="my-3 text-light text-center">Please wait Data is loading...</h3>
+            <h3 *ngIf="bloglength2() && isDataFetched1" class="py-3 text-light text-center">No More blogs to Display !!</h3>
+            <div class=" my-4 card1" *ngFor="let b of blogs" key="b._id">
+                
+                <div class="row card-content">
+                    <div class=" col-lg-10 col-md-9 col-sm-12">
+                        <div class="mx-3 my-3 card-left-content">
+                        
+                            <h3>{{ b.heading.length > 70 ? b.heading.slice(0, 70)+"..." : b.heading }}</h3>
+                            <h6>{{ b.content.length > 130 ? b.content.slice(0, 130)+"..." : b.content }}</h6>
+                            <div class="py-2">
+                        <button (click)="readMore(b._id)" class="btn btn-dark btn-sm">Read More</button></div>
+                        </div>
+                    </div>
+                    <div class="mp-zero col-lg-2 col-md-3 col-sm-12">
+                        <img class ="img" src="../../../assets/login.webp" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="next-previous">
+                <button [disabled]="isPreviousDisabled()" (click)="previous()" class="btn btn-light">Previous</button>
+                <h6 class="text-center text-light">Page {{page}}</h6>
+                <button [disabled]="isNextDisabled()" (click)="next()" class="btn btn-light">Next</button>
+
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!isTokenAvailable()" class="my-2 blog-section2">
+        
+        <div class="container">
+            <h3 class="py-3 text-center" >Your Blogs </h3>
+            <div class="blog-section2-bg">
+                <h3 *ngIf="!isDataFetched2" class="my-3 text-dark text-center">Please wait Data is loading...</h3>
+            <h5 *ngIf="bloglength() && isDataFetched2" class="py-3 text-center">No blogs to Display !!</h5>
+            <div class=" my-4 card1" *ngFor="let b of yourBlogs">
+                <div class="row card-content">
+                    <div class=" col-lg-10 col-md-10 col-sm-9">
+                        <div class="mx-3 my-3 card-left-content">
+                            <h3>{{ b.heading.length > 70 ? b.heading.slice(0, 70)+"..." : b.heading }}</h3>
+                            <h6>{{ b.content.length > 130 ? b.content.slice(0, 130)+"..." : b.content }}</h6>
+                        <div class="delete-edit py-2">
+                            <button (click)="edit(b._id)" class=" btn btn-dark btn-sm">Edit</button>
+                            <button (click)="delete(b._id)" class="mx-3 btn btn-dark btn-sm">Delete</button>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="mp-zero col-lg-2 col-md-2 col-sm-3">
+                        <img class ="img" src="../../../assets/login.webp" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="next-previous">
+                <button [disabled]="isPrevious2Disabled()" (click)="previous2()" class="btn btn-dark">Previous</button>
+                <h6 class="text-center text-dark">Page {{page2}}</h6>
+                <button [disabled]="isNext2Disabled()" (click)="next2()" class="btn btn-dark">Next</button>
+
+            </div>
+        </div>
+        </div>
+    </div>
+    <h3 class="py-3 text-center" >Write Your Own Blog </h3>
+    <div class="last-container">
+    <div class="py-4 container ">
+        <div class="write-blog">
+            
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label text-white">Heading</label>
+                <input [(ngModel)]="heading"  name="heading" [disabled]="isTokenAvailable()"  class="form-control" id="exampleFormControlInput1" placeholder="Enter Heading of Your blog">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label text-white">Content</label>
+                <textarea placeholder="Enter Content of Your blog" [(ngModel)]="content" name="content" [disabled]="isTokenAvailable()" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+              <div *ngIf="isTokenAvailable()">
+                   <h5 class="text-light">Login to Write </h5>
+              </div>
+              <div *ngIf="!isTokenAvailable()">
+              <button (click)="post()" class="btn btn-primary">Post</button>
+              <button  (click)="logout()" class="mx-3 btn btn-primary">Logout</button>
+        
+              </div>
+             
+             
+         </div>
+    </div>
+</div>
+  
+       
+</div>
